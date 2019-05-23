@@ -1,3 +1,16 @@
+myApp = {};
+
+myApp.key = 'a91fee1758c5c0c609f0db4a9ef6b8d933bdfbae';
+
+
+
+// myApp.dataArray = [
+//     {
+//        name: Afghanistan' 
+//     }
+
+// ]
+
 countriesArray = [
     'Afghanistan',
     'Albania',
@@ -229,3 +242,39 @@ countriesArray = [
     'Zambia',
     'Zimbabwe'
 ]
+
+countriesArray.forEach(function (country) {
+    $(`<option value= data-value="${verbValues.value}">${verbValues.name} </li>`);
+});
+
+('#country').on('change', function () {
+            const choosenCountry = $(this).val();
+            const choosenState = choosenCountry
+
+
+
+
+
+
+
+
+            logic we’ ll use to display the output(pseudocode)
+
+            if the holidays API response is empty, add‘ YES(they are working)’ to the html
+
+            if the holiday response is NOT empty, add‘ NO, it’ s[the name of the holiday] !’
+
+
+
+
+
+
+
+
+
+
+                if ($() === ("") {
+                        $("p.output").text("Yes, they're working")
+                    } else {
+                        $("p.output").text("No, it's ${`holidays.name`}, they're off");
+                    }
