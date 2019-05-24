@@ -1,0 +1,79 @@
+body {
+    background: #fbfaf9;
+}
+
+.flexContainer {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.mainQuestion {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 80px;
+    text-align: center;
+    overflow: hidden;
+    border-right: 5px solid black;
+    white-space: nowrap;
+    margin: 80px auto 20px auto;
+    width: 82%;
+}
+
+form {
+    width: 35%;
+}
+
+.selectCountry,
+.selectState {
+    width: 100%;
+    height: 40px;
+    padding-left: 10px;
+    margin: 5px 0;
+}
+
+.submit {
+    margin-top: 20px;
+    padding: 15px 35px 12px 35px;
+    border: solid black 4px;
+    border-radius: 10px;
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: transparent;
+    text-transform: uppercase;
+    transition: ease 0.3s;
+}
+
+.submit:hover {
+    background-color: black;
+    color: #fbfaf9;
+}
+
+
+.typewriterAnim {
+    animation: typing 2s steps(14, end), blink-caret 500ms step-end infinite;
+}
+@keyframes typing{
+    from{width: 0;}
+    to{width: 82%;}
+}
+@keyframes blink-caret {
+    from{border-right-color: black;}
+    to{border-right-color: transparent;}
+}
+
+.img1 {
+    height: 200px;
+    position: absolute;
+    bottom: 0;
+    left: 40%;
+}
