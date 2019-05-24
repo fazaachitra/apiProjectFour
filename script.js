@@ -2,14 +2,34 @@ myApp = {};
 
 myApp.key = 'a91fee1758c5c0c609f0db4a9ef6b8d933bdfbae';
 
+myApp.dataArray = [
+    // {name: `Afghanistan`,
+    // code: `af`,
+    // states: [
+    //     `Badakhshan`, `Badghis`, `Baghlan`, `Balkh`, `Bamian`, `Daykondi`, `Farah`, `Faryab`, `Ghazni`, `Ghowr`, `Helmand`, `Herat`, `Jowzjan`, `Kabul`, `Kandahar`, `Kapisa`, `Khost`, `Konar`, `Kondoz`, `Laghman`, `Lowgar`, `Nangarhar`, `Nimruz`, `Nurestan`, `Oruzgan`, `Paktia`, `Paktika`, `Panjshir`, `Parvan`, `Samangan`, `Sar - e Pol`, `Takhar`, `Vardak`, `Zabol`]
+    // },
+    {
+        name: `Canada`,
+        code: `ca`,
+        states:
+            {
+            stateName: `Alberta`, 
+            stateCode: `ca-ab`
+            },
+            // {stateName: `Ontario`, stateCode: `ca-on`},
+    },
 
+    {
+        name: `United States`,
+        code: `us`,
+    }
+]
 
-// myApp.dataArray = [
-//     {
-//        name: Afghanistan' 
-//     }
+// ****we want to get this info before the submit - how do we capture it for the select dropdown AND the submit??****
+// const chosenCountry = function(){
+//     $(`#country option:selected`).val();
+// } 
 
-// ]
 
 countriesArray = [
     'Afghanistan',
@@ -243,38 +263,69 @@ countriesArray = [
     'Zimbabwe'
 ]
 
-countriesArray.forEach(function (country) {
-    $(`<option value= data-value="${verbValues.value}">${verbValues.name} </li>`);
-});
+$(document).ready(() => {
+    // countriesArray.forEach(function (country) {
+    //     $(`<option value= data-value="${verbValues.value}">${verbValues.name} </li>`);
+    // });
 
-('#country').on('change', function () {
-            const choosenCountry = $(this).val();
-            const choosenState = choosenCountry
+    // $('#country').on('change', function () {
+    //     myApp.findAllStates(countryName);
+    // })
 
+    // myApp.findAllStates = function() {
+    //     myApp.currentCountry = myApp.dataArray.filter(function(name) {
+    //         return 
+    //     }) 
+    // }
 
+    // const chosenCountry = $(`#country option:selected`).val();
 
+    // listening to the user's input
+    $('.submit').on('click', function () {
+        //capturing the value of the country the user selected
+        chosenCountry = $(`#country option:selected`).val();
+        console.log(chosenCountry)
+        
+        // using the country value selected to call the list of associated states
+        // const chosenState = $(.selectState) ${chosenCountry.states}
 
+       myApp.getHolidays(chosenCountry); 
 
+    })
 
+    myApp.getHolidays = function (chosenCountry) {
+        console.log('fired')
+        $.ajax({
+            url: `https://calendarific.com/api/v2/holidays`,
+            method: `GET`,
+            dataType: `json`,
+            
+            data: {
+                api_key: myApp.key,
+                country: chosenCountry,
+                year: 2019,
+                day: 20,
+                month: 05,
+                location: 'ca-on',
+            },
+            // location: myApp.dataArray[0].states.stateCode,
+        }).then(function (results) {
+            console.log(results, 'results');
+        }).catch((error) => {
+            console.log('error!!!');
+        })
+    }
 
+})
 
-            logic we’ ll use to display the output(pseudocode)
+    // logic we’ ll use to display the output(pseudocode)
 
-            if the holidays API response is empty, add‘ YES(they are working)’ to the html
+    // if the holidays API response is empty, add‘ YES(they are working)’ to the html
 
-            if the holiday response is NOT empty, add‘ NO, it’ s[the name of the holiday] !’
+    // if the holiday response is NOT empty, add‘ NO, it’ s[the name of the holiday] !’
 
-
-
-
-
-
-
-
-
-
-                if ($() === ("") {
-                        $("p.output").text("Yes, they're working")
-                    } else {
-                        $("p.output").text("No, it's ${`holidays.name`}, they're off");
-                    }
+    // if ($() === ("") {
+    //         $("p.output").text("Yes, they're working")
+    //     } else {
+    //         $("p.output").text("No, it's ${`holidays.name`}, they're off");
+    //     }
