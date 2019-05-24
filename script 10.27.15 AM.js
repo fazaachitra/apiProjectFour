@@ -11,14 +11,12 @@ myApp.dataArray = [
     { 
         name: `Canada`,
         code: `ca`,
-        states: [
+        states:
             {
             stateName: `Alberta`, 
             stateCode: `ca-ab`
             },
-            {stateName: `Ontario`, 
-            stateCode: `ca-on`
-            }]
+            // {stateName: `Ontario`, stateCode: `ca-on`},
     },
 
     {
@@ -28,6 +26,10 @@ myApp.dataArray = [
 ]
 
 // ****we want to get this info before the submit - how do we capture it for the select dropdown AND the submit??****
+// const chosenCountry = function(){
+//     $(`#country option:selected`).val();
+// } 
+
 
 countriesArray = [
     'Afghanistan',
@@ -263,60 +265,41 @@ countriesArray = [
 
 $(document).ready(() => {
     $('#country').on('change', function () {
-        chosenCountry = $(`#country option:selected`).val();
-        console.log(chosenCountry)
-
-        myApp.findAllStates(chosenCountry);
-
+        myApp.findAllStates(countryName);
     })
 
-    myApp.findAllStates = function(countryCode) {
-        myApp.chosenCountry = myApp.dataArray.filter(function(country) {
-            return country.code === countryCode;
+    myApp.findAllStates = function() {
+        myApp.currentCountry = myApp.dataArray.filter(function(country) {
+            return country.code === countryName
         }) 
-
-        console.log(myApp.chosenCountry[0]);
-
-        const countryObject = myApp.chosenCountry[0];
-        // console.log(countryObject.states[0].stateName);
-
-        countryObject.states.forEach(function(item) {
-            console.log(item.stateName);
-        })
-
-        // myApp.currentStates = myApp.chosenCountry.forEach(item => {
-        //     return item[0].states[0].stateCode === stateCode;
-        // })
-
-        console.log(myApp.currentStates);
-
-        // myApp.populateStates(myApp.currentStates);
-        
-        console.log(myApp.chosenCountry.states);
-
     }
 
-    
-    
+    myApp.currentStates = myApp.currentCountry.states
+    myApp.populateStates(myApp.currentStates)
 
-    // myApp.currentStates.forEach(state => {
-    //     return (<option value= {states.stateCode} class="state-item" {states.stateName} </option>)
-    // }
+    // stateList.map(state => {
+    //     return (<option id = {state.stateCode
+    //     }
+    //                     class = "state-item" > {
+    //                         state.stateName
+    //                     } <
+    //                     /option>
 
-    // const chosenCountry = $(`#country option:selected`).val();
 
-    // listening to the user's input
-    $('.submit').on('click', function () {
-        //capturing the value of the country the user selected
-        chosenCountry = $(`#country option:selected`).val();
-        console.log(chosenCountry)
+    // // const chosenCountry = $(`#country option:selected`).val();
+
+    // // listening to the user's input
+    // $('.submit').on('click', function () {
+    //     //capturing the value of the country the user selected
+    //     chosenCountry = $(`#country option:selected`).val();
+    //     console.log(chosenCountry)
         
-        // using the country value selected to call the list of associated states
-        // const chosenState = $(.selectState) ${chosenCountry.states}
+    //     // using the country value selected to call the list of associated states
+    //     // const chosenState = $(.selectState) ${chosenCountry.states}
 
-        myApp.getHolidays(chosenCountry); 
+    // myApp.getHolidays(chosenCountry); 
 
-    })
+    // })
 
     myApp.getHolidays = function (chosenCountry) {
         console.log('fired')
