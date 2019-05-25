@@ -319,10 +319,11 @@ $(document).ready(() => {
         console.log(chosenState);
         const today = new Date();
         const currentDate = today.getDate();
-        const currentMonth = today.getMonth();
+        const currentMonth = today.getMonth()+1;
         const currentYear = today.getFullYear();
         const currentDayOfWeek = today.getDay();
         const currentHours = today.getHours();
+        console.log(currentDate, currentMonth, currentYear);
 
         // using the country value selected to call the list of associated states
         // const chosenState = $(.selectState) ${chosenCountry.states}
@@ -348,13 +349,16 @@ $(document).ready(() => {
             }).then(function (results) {
                 console.log(results, 'results');
                 const currentHoliday = (results.response.holidays);
-                console.log(currentHoliday, 'currentHoliday');
-                if (currentHoliday.length === 0 && currentDayOfWeek !== 6 && currentDayOfWeek !== 7) {
+                console.log('currentHoliday');
+                if (currentHoliday.length === 0 && currentDayOfWeek !== 6 && currentDayOfWeek !== 0) {
                     console.log(`they are working - no holiday and weekday`);
                     $('h2').text('There is NO holiday!')
+                } else if (currentHoliday.length === 0 && currentDayOfWeek !== 1 && currentDayOfWeek !== 2 && currentDayOfWeek !== 3 && currentDayOfWeek !== 4 && currentDayOfWeek !== 5) {
+                    console.log(`theres no holiday but it IS a weekend`);
+                    $('h2').text(`It's the weekend!`)
                 } else {
-                    console.log(`there IS a holiday OR its a weekend!!!`);
-                    $('h2').text('There IS a holiday!')
+                    console.log(`theres a holiday`);
+                    $('h2').text(`It is ${currentHoliday[0].name}!`);
                 }
             }).catch((error) => {
                 console.log('error!!!');
