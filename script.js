@@ -336,42 +336,50 @@ $(document).ready(() => {
                     year: 2019,
                     day: 20,
                     month: 05,
-                    location: chosenState
+                    location: chosenState,
+                    type: 'national'
                 },
                 // location: myApp.dataArray[0].states.stateCode,
             }).then(function (results) {
                 console.log(results, 'results');
-                // const currentHoliday = (results.response.holidays[0].name);
-                // console.log(currentHoliday);
+                const currentHoliday = (results.response.holidays);
+                console.log(currentHoliday, 'currentHoliday');
+                if (currentHoliday.length === 0) {
+                    console.log(`there is NO holiday!`);
+                    $('h2').text('There is NO holiday!')
+                } else {
+                    console.log(`there IS a holiday!!!`);
+                    $('h2').text('There IS a holiday!')
+                }
             }).catch((error) => {
                 console.log('error!!!');
             })
         }
 
-        const currentHoliday = function(results) {(results.response.holidays[0])
-        };
+        // const currentHoliday = results.response.holidays[0];
+        // console.log(currentHoliday, 'this is the current holiday');
 
         myApp.getHolidays(chosenCountry, chosenState);
 
-        const printOutput = function () {
-            $('h2').text(`There's a holiday`);
-        }
+        // const printOutput = function () {
+        //     $('h2').text(`There's a holiday`);
+        // }
 
-        const printOutputYes = function () {
-            $('h2').text('Yes');
-        }
-        
-        myApp.NameToChangeTBD = function(){
-            if (currentHoliday === true) {
-                console.log('THERES A HOLIDAY')
-                printOutput();
-            } else {
-                console.log('THERES NO HOLIDAY!!');
-                printOutputYes();
-            }
-        }
+        // const printOutputYes = function () {
+        //     $('h2').text('Yes');
+        // }
 
-        myApp.NameToChangeTBD();
+        // myApp.NameToChangeTBD = function(){
+        //     if (currentHoliday === true) {
+        //         console.log('THERES A HOLIDAY');
+        //         printOutput();
+        //     } else {
+        //         console.log('THERES NO HOLIDAY!!');
+        //         printOutputYes();
+        //     }
+        // }
+
+        // myApp.NameToChangeTBD();
 
         
 
