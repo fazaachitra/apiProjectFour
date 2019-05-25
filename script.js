@@ -266,82 +266,121 @@ $(document).ready(() => {
         chosenCountry = $(`#country option:selected`).val();
         console.log(chosenCountry)
 
-        myApp.findAllStates(chosenCountry);
+        // myApp.findAllStates(chosenCountry);
+
+        if ((chosenCountry) === 'ca') {
+            $('#CaStateForm').removeClass('displayNone');
+            $('#CaStateForm').addClass('display');
+        } else if ((chosenCountry) === 'us') {
+            $('#USStateForm').removeClass('displayNone');
+            $('#USStateForm').addClass('display');
+        }
 
     })
 
-    myApp.findAllStates = function(countryCode) {
-        myApp.chosenCountry = myApp.dataArray.filter(function(country) {
-            return country.code === countryCode;
-        }) 
+    // myApp.findAllStates = function(countryCode) {
+    //     myApp.chosenCountry = myApp.dataArray.filter(function(country) {
+    //         return country.code === countryCode;
+    //     }) 
 
-        console.log(myApp.chosenCountry[0]);
+        // console.log(myApp.chosenCountry[0]);
 
-        const countryObject = myApp.chosenCountry[0];
+        // const countryObject = myApp.chosenCountry[0];
         // console.log(countryObject.states[0].stateName);
 
-        countryObject.states.forEach(function(item) {
-            console.log(item.stateName);
-        })
+        // countryObject.states.forEach(function(item) {
+        //     console.log(item.stateName);
+        // })
 
         // myApp.currentStates = myApp.chosenCountry.forEach(item => {
         //     return item[0].states[0].stateCode === stateCode;
         // })
 
-        console.log(myApp.currentStates);
+        // console.log(myApp.currentStates);
 
         // myApp.populateStates(myApp.currentStates);
         
-        console.log(myApp.chosenCountry.states);
+        // console.log(myApp.chosenCountry.states);
 
-    }
-
-    
-    
+    // }
 
     // myApp.currentStates.forEach(state => {
     //     return (<option value= {states.stateCode} class="state-item" {states.stateName} </option>)
     // }
 
     // const chosenCountry = $(`#country option:selected`).val();
-
+    
     // listening to the user's input
     $('.submit').on('click', function () {
         //capturing the value of the country the user selected
-        chosenCountry = $(`#country option:selected`).val();
-        console.log(chosenCountry)
+        const chosenCountry = $(`#country option:selected`).val();
+        console.log(chosenCountry);
+
+        const chosenState = $(`#state option:selected`).val();
+        console.log(chosenState);
         
         // using the country value selected to call the list of associated states
         // const chosenState = $(.selectState) ${chosenCountry.states}
 
-        myApp.getHolidays(chosenCountry); 
+        // myApp.getHolidays(chosenCountry); 
 
-    })
+        myApp.getHolidays = (chosenCountry, chosenState) => {
+            console.log('fired');
+            $.ajax({
+                url: `https://calendarific.com/api/v2/holidays`,
+                method: `GET`,
+                dataType: `json`,
+                data: {
+                    api_key: myApp.key,
+                    country: chosenCountry,
+                    year: 2019,
+                    day: 20,
+                    month: 05,
+                    location: chosenState
+                },
+                // location: myApp.dataArray[0].states.stateCode,
+            }).then(function (results) {
+                console.log(results, 'results');
+                // const currentHoliday = (results.response.holidays[0].name);
+                // console.log(currentHoliday);
+            }).catch((error) => {
+                console.log('error!!!');
+            })
+        }
 
-    myApp.getHolidays = function (chosenCountry) {
-        console.log('fired')
-        $.ajax({
-            url: `https://calendarific.com/api/v2/holidays`,
-            method: `GET`,
-            dataType: `json`,
-            
-            data: {
-                api_key: myApp.key,
-                country: chosenCountry,
-                year: 2019,
-                day: 20,
-                month: 05,
-                location: 'ca-on',
-            },
-            // location: myApp.dataArray[0].states.stateCode,
-        }).then(function (results) {
-            console.log(results, 'results');
-        }).catch((error) => {
-            console.log('error!!!');
+        const currentHoliday = function(results) {(results.response.holidays[0])
+        };
+
+        myApp.getHolidays(chosenCountry, chosenState);
+
+        const printOutput = function () {
+            $('h2').text(`There's a holiday`);
+        }
+
+        const printOutputYes = function () {
+            $('h2').text('Yes');
+        }
+        
+        myApp.NameToChangeTBD = function(){
+            if (currentHoliday === true) {
+                console.log('THERES A HOLIDAY')
+                printOutput();
+            } else {
+                console.log('THERES NO HOLIDAY!!');
+                printOutputYes();
+            }
+        }
+
+        myApp.NameToChangeTBD();
+
+        
+
+        // myApp.printOutput = myApp.getHolidays.forEach(item => {
+        //     return item[0].states[0].stateCode === stateCode;
+        // })
+    
         })
-    }
-
-})
+    })
 
     // logic we’ ll use to display the output(pseudocode)
 

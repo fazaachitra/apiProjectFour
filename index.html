@@ -20,7 +20,7 @@
             <h1 class="typewriterAnim">Are they working in __ ?</h1>
             <!-- <h2> <span></span> ?</h2> -->
 
-            <form action="">
+            <form action="" class="countryForm">
                 <label for="country" class="visuallyHidden">Country</label>
                 <select name="country" id="country" class="selectCountry">
                     <option value="" disabled selected>Country</option>
@@ -30,12 +30,23 @@
                 </select>
             </form>
 
-            <form action="">
-                <label for="state" class="visuallyHidden">State</label>
-                <select name="state" id="state" class="selectState">
-                    <option value="" disabled selected>State</option>
-                    <!-- <option value="ca">Canada</option>
-                    <option value="us">United States</option> -->
+            <form action="" class="stateForm displayNone" id="CaStateForm">
+                <label for="ca-state" class="visuallyHidden">State</label>
+                <select name="ca-state" id="state" class="selectCaState">
+                    <option value="" disabled selected>Province/Territory</option>
+                    <option value="ca-ab">Alberta</option>
+                    <option value="ca-bc">British Columbia</option>
+                    <option value="ca-mb">Manitoba</option>
+                    <option value="ca-nb">New Brunswick</option>
+                    <option value="ca-nl">Newfoundland and Labrador</option>
+                    <option value="ca-nt">Northwest Territories</option>
+                    <option value="ca-ns">Nova Scotia</option>
+                    <option value="ca-nu">Nunavut</option>
+                    <option value="ca-on">Ontario</option>
+                    <option value="ca-pe">Prince Edward Island</option>
+                    <option value="ca-qc">Quebec</option>
+                    <option value="ca-sk">Saskatchewan</option>
+                    <option value="ca-yt">Yukon</option>
                 </select>
             </form>
 
@@ -43,7 +54,8 @@
 
         </div>
 
-        <div class="output">
+        <div>
+            <h2 class="output"></h2>
             <!-- where the Yes or No will be printed -->
         </div>
 
