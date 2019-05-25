@@ -315,10 +315,15 @@ $(document).ready(() => {
         //capturing the value of the country the user selected
         const chosenCountry = $(`#country option:selected`).val();
         console.log(chosenCountry);
-
         const chosenState = $(`#state option:selected`).val();
         console.log(chosenState);
-        
+        const today = new Date();
+        const currentDate = today.getDate();
+        const currentMonth = today.getMonth();
+        const currentYear = today.getFullYear();
+        const currentDayOfWeek = today.getDay();
+        const currentHours = today.getHours();
+
         // using the country value selected to call the list of associated states
         // const chosenState = $(.selectState) ${chosenCountry.states}
 
@@ -333,9 +338,9 @@ $(document).ready(() => {
                 data: {
                     api_key: myApp.key,
                     country: chosenCountry,
-                    year: 2019,
-                    day: 20,
-                    month: 05,
+                    year: currentYear,
+                    day: currentDate,
+                    month: currentMonth,
                     location: chosenState,
                     type: 'national'
                 },
@@ -344,11 +349,11 @@ $(document).ready(() => {
                 console.log(results, 'results');
                 const currentHoliday = (results.response.holidays);
                 console.log(currentHoliday, 'currentHoliday');
-                if (currentHoliday.length === 0) {
-                    console.log(`there is NO holiday!`);
+                if (currentHoliday.length === 0 && currentDayOfWeek !== 6 && currentDayOfWeek !== 7) {
+                    console.log(`they are working - no holiday and weekday`);
                     $('h2').text('There is NO holiday!')
                 } else {
-                    console.log(`there IS a holiday!!!`);
+                    console.log(`there IS a holiday OR its a weekend!!!`);
                     $('h2').text('There IS a holiday!')
                 }
             }).catch((error) => {
