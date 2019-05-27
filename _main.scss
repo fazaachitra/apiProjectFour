@@ -4,31 +4,20 @@ html {
 
 body {
     background: #fbfaf9;
-    // background: linear-gradient(0deg, rgba(249, 249, 129, 0.5) 0%, rgba(151, 207, 230, 0.28) 50%, rgba(151, 207, 230, 0.58) 100%);
-    // background: linear-gradient(0deg, black 0%, rgba(151, 207, 230, 0.28) 50%, rgba(151, 207, 230, 0.58) 100%);
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100%;
-    -webkit-animation-name: fadeIt;
-    -webkit-animation-duration: 4s;
-    animation-name: fadeIt;
-    animation-duration: 4s;
-    animation-fill-mode: forwards;
+    height: 100vh;
+    position: relative;
 }
 
-.flexContainer {
-    display: flex;
-    flex-direction: column;
-    width: 80%;
+.wrapper {
+    width: 75%;
     margin: 0 auto;
-    // justify-content: center;
-    align-items: center;
+    max-width: 1280px;
 }
 
+.flexContainer,
 .mainQuestion {
     display: flex;
     flex-direction: column;
-    // justify-content: center;
     align-items: center;
 }
 
@@ -36,9 +25,9 @@ h1 {
     font-family: 'Open Sans', sans-serif;
     font-size: 60px;
     text-align: center;
-    // overflow: hidden;
-    // border-right: 5px solid black;
-    // white-space: nowrap;
+    overflow: hidden;
+    border-right: 5px solid black;
+    white-space: nowrap;
     margin: 60px auto 20px auto;
 }
 
@@ -84,95 +73,104 @@ form {
 }
 
 .outputContainer {
-    margin-top: 30px;
+    margin-top: 10px;
+    text-align: center;
     font-size: 24px;
-        // .output {
-        //     align-items: center;
-        // }
 }
 
-.img1 {
-    height: 200px;
+.imageContainer {
+    display: flex;
     position: absolute;
     bottom: 0;
-    left: 45%;
-}
-
-// .image-2 {
-//     height: 300px;
-// }
-
-.img2 {
-    height: 200px;
-    position: absolute;
-    bottom: 0;
-    left: 20%;
-}
-
-.img3 {
-    height: 150px;
-    position: absolute;
-    bottom: 0;
-    left: 10%;
-}
-.img4 {
-    height: 200px;
-    position: absolute;
-    bottom: 0;
-    left: 60%;
-}
-
-.building2 {
+    align-items: flex-end;
     margin: 0;
+    padding: 0;
+        .img1 {
+        height: 140px;
+        margin-right: -15px;
+        }
         .img2 {
-            position: absolute;
-            bottom: 0;
-            left: 189px;
-            height: 250px;
+            height: 220px;
         }
-        // .yellow2 {
-        //     position: absolute;
-        //     height: 120px;
-        //     width: 220px;
-        //     bottom: 0;
-        //     left: 215px;
-        //     z-index: -1;
-        //     background-color: yellow;
-        //     background-color: transparent;
-        //     -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
-        //     -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
-        //     animation-name: lightsOn;
-        //     animation-duration: 4s;
-        //     animation-fill-mode: forwards;
-        // }
-}
-
-.building5 {
-    margin: 0;
+        .img3 {
+            height: 160px;
+            margin-right: -6px;
+        }
+        .img4 {
+            height: 140px;
+            margin-right: -14px;
+        }
         .img5 {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            height: 200px;
+            height: 180px;
+            margin-right: -8px;
         }
-        // .yellow5 {
-        //     position: absolute;
-        //     height: 100px;
-        //     width: 170px;
-        //     bottom: 0;
-        //     left: 15px;
-        //     z-index: -1;
-        //     background-color: yellow;
-        //     background-color: transparent;
-        //     -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
-        //     -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
-        //     animation-name: lightsOn;
-        //     animation-duration: 4s;
-        //     animation-fill-mode: forwards;
-        // }
+        .img6 {
+            height: 120px;
+        }
 }
 
-// .img5 {
-//     z-index: 2;
-// }
+// MEDIA QUERIES
+
+@media (max-width: 950px) {
+    .img1 {
+        margin-right: -8px;
+    }
+    .img2 {
+        display: none;
+    }
+}
+
+@media (max-width: 780px) {
+    h1 {
+        font-size: 50px;
+    }
+    .img3 {
+        display: none;
+    }
+}
+
+@media (max-width: 650px) {
+    h1 {
+        white-space: normal;
+        border-right: none;
+        overflow: initial;
+    }
+}
+
+@media (max-width: 570px) {
+    .outputContainer {
+        font-size: 18px
+    }
+    .imageContainer {
+        .img1 {
+            margin-right: -6px;
+        }
+        .img4 {
+            margin-right: 0;
+        }
+        .img5 {
+            display: none;
+        }
+    }
+}
+
+@media (max-width: 530px) {
+    h1 {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 415px) {
+    h1 {
+        font-size: 32px;
+    }
+    .imageContainer {
+        .img1, .img6 {
+            height: 100px;
+        }
+        .img4 {
+            height: 90px;
+        }
+    }
+}
 
