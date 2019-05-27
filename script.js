@@ -64,18 +64,15 @@ $(document).ready(() => {
                 } 
                 // there's no public holiday AND it's a weekday, so they are working
                 else if (currentHoliday.length === 0 && currentDayOfWeek !== 6 && currentDayOfWeek !== 0) {
-                    console.log(`they are working - no holiday and weekday`);
                     $('h2').text('Yes!')
                 }
                 // there's no public holiday but it's a weekend, so they're not working
                 else if (currentHoliday.length === 0 && currentDayOfWeek !== 1 && currentDayOfWeek !== 2 && currentDayOfWeek !== 3 && currentDayOfWeek !== 4 && currentDayOfWeek !== 5) {
-                    console.log(`theres no holiday but it IS a weekend`);
                     $('h2').text(`Nope, it's the weekend!`)
                     $('body').addClass('backgroundAnimated');
                 }
                 // there is a public holiday, so they're not working (+ display the holiday name)
                 else {
-                    console.log(`theres a holiday`);
                     $('h2').text(`Nope, it's ${currentHoliday[0].name}!`);
                 }
             }).catch((error) => {

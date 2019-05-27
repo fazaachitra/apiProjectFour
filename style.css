@@ -370,15 +370,3 @@ form {
       border-right-color: black; }
     to {
       border-right-color: transparent; } } }
-
-@-webkit-keyframes lightsOn {
-  from {
-    background-color: transparent; }
-  to {
-    background-color: #FCFF65; } }
-
-@keyframes lightsOn {
-  from {
-    background-color: transparent; }
-  to {
-    background-color: #89270F; } }
