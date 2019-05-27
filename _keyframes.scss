@@ -1,0 +1,40 @@
+// .typewriterAnim {
+//     animation: typing 2s steps(14, end), blink-caret 500ms step-end infinite;
+// }
+// @keyframes typing{
+//     from{width: 0;}
+//     to{width: 82%;}
+// }
+// @keyframes blink-caret {
+//     from{border-right-color: black;}
+//     to{border-right-color: transparent;}
+// }
+
+// @-o-keyframes fadeIt {
+//     0%   { background-color: #FFFFFF}
+//     50%  { background-color: #AD301B }
+//     100% { background-color: #FFFFFF}
+// }
+// @keyframes fadeIt {
+    // from   { background: linear-gradient(#fbfaf9 0%, #fbfaf9 100%) }
+    // to  { background: linear-gradient(0deg, rgba(249,249,129,0.87) 0%, rgba(45,194,253,0.40) 100%)}
+    // to {background: linear-gradient(0deg, rgba(249, 249, 129, 0.5) 0%, rgba(151, 207, 230, 0.28) 100%)}
+    // 100% { background-color: #FFFFFF}
+// }
+
+// .backgroundAnimated {    
+//     background-image:none !important; 
+//     -o-animation: fadeIt 5s ease-in-out; 
+//     animation: fadeIt 5s ease-in-out; 
+// }
+
+// Lights On animation - 'yes they are working'
+// @-webkit-keyframes lightsOn {
+//     from {background-color: transparent}
+//     to {background-color: #f9f981;}
+// }
+
+// @keyframes lightsOn {
+//     from {background-color: transparent}
+//     to {background-color: #f9f981;}
+// }

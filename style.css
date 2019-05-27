@@ -145,8 +145,20 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   clip: rect(0 0 0);
   overflow: hidden; }
 
+html {
+  height: 100%; }
+
 body {
-  background: #fbfaf9; }
+  background: #fbfaf9;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  -webkit-animation-name: fadeIt;
+  -webkit-animation-duration: 4s;
+  animation-name: fadeIt;
+  animation-duration: 4s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards; }
 
 .flexContainer {
   display: -webkit-box;
@@ -158,9 +170,9 @@ body {
   flex-direction: column;
   width: 80%;
   margin: 0 auto;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center; }
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
 
 .mainQuestion {
   display: -webkit-box;
@@ -170,28 +182,30 @@ body {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center; }
 
 h1 {
   font-family: 'Open Sans', sans-serif;
-  font-size: 80px;
+  font-size: 60px;
   text-align: center;
-  overflow: hidden;
-  border-right: 5px solid black;
-  white-space: nowrap;
-  margin: 80px auto 20px auto;
-  width: 82%; }
+  margin: 60px auto 20px auto; }
 
 form {
   width: 35%; }
 
+.displayNoneCA,
+.displayNoneUS {
+  display: none; }
+
+.displayCA,
+.displayUS {
+  display: inline-block; }
+
 .selectCountry,
-.selectState {
+.selectCAState,
+.selectUSState {
   width: 100%;
   height: 40px;
   padding-left: 10px;
@@ -199,52 +213,118 @@ form {
 
 .submit {
   margin-top: 20px;
-  padding: 15px 35px 12px 35px;
-  border: solid black 4px;
-  border-radius: 10px;
-  color: black;
-  font-weight: bold;
-  font-size: 20px;
-  background-color: transparent;
+  padding: 15px 35px 10px 35px;
+  border: solid black 2px;
+  border-radius: 25px;
+  color: #fbfaf9;
+  font-size: 18px;
+  letter-spacing: 2px;
+  background-color: black;
   text-transform: uppercase;
   -webkit-transition: ease 0.3s;
   -o-transition: ease 0.3s;
   transition: ease 0.3s; }
 
 .submit:hover {
-  background-color: black;
-  color: #fbfaf9; }
+  background-color: #fbfaf9;
+  color: black; }
 
-.typewriterAnim {
-  -webkit-animation: typing 2s steps(14, end), blink-caret 500ms step-end infinite;
-  animation: typing 2s steps(14, end), blink-caret 500ms step-end infinite; }
-
-@-webkit-keyframes typing {
-  from {
-    width: 0; }
-  to {
-    width: 82%; } }
-
-@keyframes typing {
-  from {
-    width: 0; }
-  to {
-    width: 82%; } }
-
-@-webkit-keyframes blink-caret {
-  from {
-    border-right-color: black; }
-  to {
-    border-right-color: transparent; } }
-
-@keyframes blink-caret {
-  from {
-    border-right-color: black; }
-  to {
-    border-right-color: transparent; } }
+.outputContainer {
+  margin-top: 30px;
+  font-size: 24px; }
 
 .img1 {
   height: 200px;
   position: absolute;
   bottom: 0;
-  left: 40%; }
+  left: 45%; }
+
+.img2 {
+  height: 200px;
+  position: absolute;
+  bottom: 0;
+  left: 20%; }
+
+.img3 {
+  height: 150px;
+  position: absolute;
+  bottom: 0;
+  left: 10%; }
+
+.img4 {
+  height: 200px;
+  position: absolute;
+  bottom: 0;
+  left: 60%; }
+
+.building2 {
+  margin: 0; }
+  .building2 .img2 {
+    position: absolute;
+    bottom: 0;
+    left: 189px;
+    height: 250px; }
+
+.building5 {
+  margin: 0; }
+  .building5 .img5 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 200px; }
+
+.customDropdown {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 10px; }
+
+.customDropdown select {
+  background-color: transparent;
+  color: black;
+  font-size: inherit;
+  font-family: 'Open Sans', sans-serif;
+  height: 45px;
+  width: 250px;
+  border: 2px solid black;
+  margin: 0;
+  border-radius: 5px;
+  -o-text-overflow: '';
+  text-overflow: '';
+  -webkit-appearance: button;
+  /* hides default arrow in chrome OSX */ }
+
+.customDropdown::before,
+.customDropdown::after {
+  content: "";
+  position: absolute;
+  pointer-events: none; }
+
+.customDropdown::after {
+  content: "\25BC";
+  height: 1em;
+  font-size: .625em;
+  line-height: 1;
+  right: 1.2em;
+  top: 50%;
+  margin-top: -.5em; }
+
+.customDropdown::before {
+  /*  Custom dropdown arrow cover */
+  width: 2em;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 0 3px 3px 0; }
+
+.customDropdown select[disabled] {
+  color: rgba(0, 0, 0, 0.3); }
+
+.customDropdown select[disabled]::after {
+  color: rgba(0, 0, 0, 0.1); }
+
+.customDropdown::before {
+  background-color: rgba(0, 0, 0, 0.15); }
+
+.customDropdown::after {
+  color: rgba(0, 0, 0, 0.4); }
