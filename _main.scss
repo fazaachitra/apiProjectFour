@@ -174,3 +174,69 @@ form {
     }
 }
 
+@media (max-height: 700px) {
+    .imageContainer {
+        .img1 {
+        height: 120px;
+        margin-right: -15px;
+        }
+        .img2 {
+            height: 170px;
+        }
+        .img3 {
+            height: 130px;
+            margin-right: -6px;
+        }
+        .img4 {
+            height: 120px;
+            margin-right: -14px;
+        }
+        .img5 {
+            height: 150px;
+            margin-right: -8px;
+        }
+        .img6 {
+            height: 100px;
+        }
+    }
+}
+
+@media (max-height: 640px) {
+    .imageContainer {
+        .img1 {
+        height: 100px;
+        margin-right: -15px;
+        }
+        .img2 {
+            height: 140px;
+        }
+        .img3 {
+            height: 90px;
+            margin-right: -6px;
+        }
+        .img4 {
+            height: 90px;
+            margin-right: -14px;
+        }
+        .img5 {
+            height: 120px;
+            margin-right: -8px;
+        }
+        .img6 {
+            height: 80px;
+        }
+    }
+}
+
+@media (max-height: 580px) {
+    .imageContainer {
+        .img1,
+        .img2,
+        .img3,
+        .img4,
+        .img5,
+        .img6 {
+            display: none
+        }
+    }
+}

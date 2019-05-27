@@ -290,6 +290,51 @@ form {
   .imageContainer .img4 {
     height: 90px; } }
 
+@media (max-height: 700px) {
+  .imageContainer .img1 {
+    height: 120px;
+    margin-right: -15px; }
+  .imageContainer .img2 {
+    height: 170px; }
+  .imageContainer .img3 {
+    height: 130px;
+    margin-right: -6px; }
+  .imageContainer .img4 {
+    height: 120px;
+    margin-right: -14px; }
+  .imageContainer .img5 {
+    height: 150px;
+    margin-right: -8px; }
+  .imageContainer .img6 {
+    height: 100px; } }
+
+@media (max-height: 640px) {
+  .imageContainer .img1 {
+    height: 100px;
+    margin-right: -15px; }
+  .imageContainer .img2 {
+    height: 140px; }
+  .imageContainer .img3 {
+    height: 90px;
+    margin-right: -6px; }
+  .imageContainer .img4 {
+    height: 90px;
+    margin-right: -14px; }
+  .imageContainer .img5 {
+    height: 120px;
+    margin-right: -8px; }
+  .imageContainer .img6 {
+    height: 80px; } }
+
+@media (max-height: 580px) {
+  .imageContainer .img1,
+  .imageContainer .img2,
+  .imageContainer .img3,
+  .imageContainer .img4,
+  .imageContainer .img5,
+  .imageContainer .img6 {
+    display: none; } }
+
 .customDropdown {
   position: relative;
   display: inline-block;
